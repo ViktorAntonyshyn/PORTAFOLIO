@@ -2,6 +2,7 @@ package com.Portafolio;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
@@ -12,6 +13,13 @@ public class PortafolioApplication {
 		SpringApplication.run(PortafolioApplication.class, args);
 	}
 
-	public List<String> getJob
+	@GetMapping(path = "/")
+	public List<String> getJob(){
+		return List.of(
+				"qwwe",
+				"fdgsfd",
+				"dfgs"
+		);
+	}
 
 }
