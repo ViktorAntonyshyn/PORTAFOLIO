@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProjectService {
@@ -23,7 +24,23 @@ public class ProjectService {
         return projectRepository.findAll(); // SELECT * FROM project
     }
 
-    public void newProject(Project project) {
+    public void newJob(Project project) {
         projectRepository.save(project);
+    }
+
+    public void updateJob(Integer id, Project project) {
+        Optional<Project> jobById = (projectRepository.findById(id));
+
+        if (jobById.isPresent()) {
+            Project jobExistente = jobById.get();
+
+            jobExistente.setName(project.getName());
+            jobExistente.setDescription(project.getDescription());
+            jobExistente.setPicture(project.getPicture());
+            jobExistente.setLink1(project.getLink1());
+            jobExistente.setLink2(project.getLink2());
+
+            projectRepository.save(jobExistente);
+        }
     }
 }

@@ -23,6 +23,10 @@ public class ProjectController {
     }
     @PostMapping
     public void createJob(@RequestBody Project project){
-         projectService.newProject(project);
+         projectService.newJob(project);
+    }
+    @PutMapping("/{id}")
+    public void  updateJob(@PathVariable Integer id, @RequestBody Project project){
+        projectService.updateJob(id, project);
     }
 }
