@@ -12,6 +12,5 @@ public class PortafolioApplication {
 		SpringApplication.run(PortafolioApplication.class, args);
 	}
 
-	public List<String> getJob
 
 }
