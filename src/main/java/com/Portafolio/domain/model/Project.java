@@ -1,6 +1,12 @@
 package com.Portafolio.domain.model;
 
+import org.apache.logging.log4j.message.AsynchronouslyFormattable;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
 import java.sql.Blob;
+
+@Entity
+@Table
 
 public class Project {
     private Integer id;
