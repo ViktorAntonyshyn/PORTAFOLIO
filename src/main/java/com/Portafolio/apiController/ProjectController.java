@@ -22,11 +22,16 @@ public class ProjectController {
         return projectService.getJob();
     }
     @PostMapping
-    public void createJob(@RequestBody Project project){
+    public void create(@RequestBody Project project){
          projectService.newJob(project);
     }
     @PutMapping("/{id}")
-    public void  updateJob(@PathVariable Integer id, @RequestBody Project project){
+    public void update(@PathVariable Integer id, @RequestBody Project project){
         projectService.updateJob(id, project);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Integer id, Project project){
+        projectService.deleteJob(id, project);
     }
 }

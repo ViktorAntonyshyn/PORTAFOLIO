@@ -43,4 +43,11 @@ public class ProjectService {
             projectRepository.save(jobExistente);
         }
     }
+
+    public void deleteJob(Integer id, Project project) {
+        boolean existe = projectRepository.existsById(id);
+        if (existe) {
+            projectRepository.delete(project);
+        }
+    }
 }
