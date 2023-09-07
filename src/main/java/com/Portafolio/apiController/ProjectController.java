@@ -1,24 +1,37 @@
 package com.Portafolio.apiController;
 
 import com.Portafolio.domain.model.Project;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.Portafolio.domain.service.ProjectService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping(path = "api/v1/projects")
 public class ProjectController {
-    @GetMapping(path = "/")
-    public List<Project> getJob(){
-        return List.of(
-                new Project(
-                        1,
-                        "Mi project 1",
-                        "Description",
-                        null,
-                        "http://ejemplo.com/1",
-                        "http://ejemplo.com/2"
-                )
-        );
+    private final ProjectService projectService;
+    @Autowired
+
+    public ProjectController(ProjectService projectService) {
+        this.projectService = projectService;
+    }
+
+    @GetMapping
+    public List<Project> getJobController(){
+        return projectService.getJob();
+    }
+    @PostMapping
+    public void create(@RequestBody Project project){
+         projectService.newJob(project);
+    }
+    @PutMapping("/{id}")
+    public void update(@PathVariable Integer id, @RequestBody Project project){
+        projectService.updateJob(id, project);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Integer id, Project project){
+        projectService.deleteJob(id, project);
     }
 }

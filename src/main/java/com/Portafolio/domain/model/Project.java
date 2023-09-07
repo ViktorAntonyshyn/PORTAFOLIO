@@ -1,8 +1,18 @@
 package com.Portafolio.domain.model;
 
+import jakarta.persistence.*;
+import org.apache.logging.log4j.message.AsynchronouslyFormattable;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
 import java.sql.Blob;
 
+@Entity
+@Table
+
 public class Project {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private String description;
