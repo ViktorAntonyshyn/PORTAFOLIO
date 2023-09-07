@@ -1,17 +1,19 @@
 package com.Portafolio.domain.model;
 
+import java.sql.Blob;
+
 public class Project {
     private Integer id;
     private String name;
     private String description;
-    private String picture;
+    private Blob picture;
     private String link1;
     private String link2;
 
     public Project() {
     }
 
-    public Project(Integer id, String name, String description, String picture, String link1, String link2) {
+    public Project(Integer id, String name, String description, Blob picture, String link1, String link2) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -20,7 +22,7 @@ public class Project {
         this.link2 = link2;
     }
 
-    public Project(String name, String description, String picture, String link1, String link2) {
+    public Project(String name, String description, Blob picture, String link1, String link2) {
         this.name = name;
         this.description = description;
         this.picture = picture;
@@ -52,11 +54,11 @@ public class Project {
         this.description = description;
     }
 
-    public String getPicture() {
+    public Blob getPicture() {
         return picture;
     }
 
-    public void setPicture(String picture) {
+    public void setPicture(Blob picture) {
         this.picture = picture;
     }
 
