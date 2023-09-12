@@ -50,4 +50,9 @@ public class ProjectService {
             projectRepository.delete(project);
         }
     }
+
+    public Project projectById(Integer id) {
+        Optional<Project> projectById = (projectRepository.findById(id));
+        return projectById.orElse(null);
+    }
 }
