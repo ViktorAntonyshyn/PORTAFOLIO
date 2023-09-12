@@ -16,14 +16,14 @@ public class Project {
     private Integer id;
     private String name;
     private String description;
-    private Blob picture;
+    private String picture;
     private String link1;
     private String link2;
 
     public Project() {
     }
 
-    public Project(Integer id, String name, String description, Blob picture, String link1, String link2) {
+    public Project(Integer id, String name, String description, String picture, String link1, String link2) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -32,7 +32,7 @@ public class Project {
         this.link2 = link2;
     }
 
-    public Project(String name, String description, Blob picture, String link1, String link2) {
+    public Project(String name, String description, String picture, String link1, String link2) {
         this.name = name;
         this.description = description;
         this.picture = picture;
@@ -64,11 +64,11 @@ public class Project {
         this.description = description;
     }
 
-    public Blob getPicture() {
+    public String getPicture() {
         return picture;
     }
 
-    public void setPicture(Blob picture) {
+    public void setPicture(String picture) {
         this.picture = picture;
     }
 
