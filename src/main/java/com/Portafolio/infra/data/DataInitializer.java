@@ -16,7 +16,7 @@ public class DataInitializer implements CommandLineRunner {
     public void run(String... args) throws Exception {
         // Crear instancias de libros y guardarlos en la base de datos
         Project project1 = new Project();
-        project1.setName("Actres y actriz");
+        project1.setName("Actores y actriz");
         project1.setDescription("JAVA");
         project1.setPicture("https://upload.wikimedia.org/wikipedia/uk/8/85/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_Java.png");
         project1.setLink1("https://getbootstrap.com");
