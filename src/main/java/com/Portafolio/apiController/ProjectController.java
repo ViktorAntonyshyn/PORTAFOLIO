@@ -5,10 +5,12 @@ import com.Portafolio.domain.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
-@CrossOrigin(origins = "http://localhost:5174")
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping(path = "api/v1/projects")
 public class ProjectController {
@@ -35,12 +37,22 @@ public class ProjectController {
     }
 
     @PostMapping
-    public void create(@RequestBody Project project){
-         projectService.newJob(project);
+    public void create(@RequestParam String name,
+                       @RequestParam String description,
+                       @RequestParam MultipartFile picture,
+                       @RequestParam String link1,
+                       @RequestParam String link2
+                       ) throws IOException {
+         projectService.newJob(name, description, picture, link1, link2);
     }
     @PutMapping("/{id}")
-    public void update(@PathVariable Integer id, @RequestBody Project project){
-        projectService.updateJob(id, project);
+    public void update(@PathVariable Integer id,
+                       @RequestParam String name,
+                       @RequestParam String description,
+                       @RequestParam MultipartFile picture,
+                       @RequestParam String link1,
+                       @RequestParam String link2) throws IOException {
+        projectService.updateJob(id, name, description, picture, link1,link2);
     }
 
     @DeleteMapping("/{id}")

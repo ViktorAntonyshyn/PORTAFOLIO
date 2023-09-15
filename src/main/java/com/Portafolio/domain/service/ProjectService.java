@@ -2,18 +2,26 @@ package com.Portafolio.domain.service;
 
 import com.Portafolio.domain.model.Project;
 import com.Portafolio.infra.repositories.ProjectRepository;
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
 public class ProjectService {
     private final ProjectRepository projectRepository;
+    private final Cloudinary cloudinary;
 
-    public ProjectService(ProjectRepository projectRepository) {
+
+    public ProjectService(ProjectRepository projectRepository, Cloudinary cloudinary) {
         this.projectRepository = projectRepository;
+        this.cloudinary = cloudinary;
     }
 
     @Autowired
@@ -24,23 +32,34 @@ public class ProjectService {
         return projectRepository.findAll(); // SELECT * FROM project
     }
 
-    public void newJob(Project project) {
+    public Project projectByIdById(Integer id){
+        Optional<Project> projectById = projectRepository.findById(id);
+        return projectById.orElse(null);
+    }
+
+    public void newJob(String name, String description, MultipartFile picture, String link1, String link2) throws IOException {
+        Map uploadResult = cloudinary.uploader().upload(picture.getBytes(), ObjectUtils.emptyMap());
+        String pictureUrl = (String) uploadResult.get("url");
+
+        Project project = new Project(name, description, pictureUrl, link1, link2);
+
         projectRepository.save(project);
     }
 
-    public void updateJob(Integer id, Project project) {
-        Optional<Project> jobById = (projectRepository.findById(id));
+    public void updateJob(Integer id, String name, String description, MultipartFile picture, String link1, String link2) throws IOException {
+        Project projectEncontrado = projectById(id);
 
-        if (jobById.isPresent()) {
-            Project jobExistente = jobById.get();
+        if (projectEncontrado != null) {
+            Map uploadResult = cloudinary.uploader().upload(picture.getBytes(), ObjectUtils.emptyMap());
+            String pictureUrl = (String) uploadResult.get("url");
 
-            jobExistente.setName(project.getName());
-            jobExistente.setDescription(project.getDescription());
-            jobExistente.setPicture(project.getPicture());
-            jobExistente.setLink1(project.getLink1());
-            jobExistente.setLink2(project.getLink2());
+            projectEncontrado.setName(name);
+            projectEncontrado.setDescription(description);
+            projectEncontrado.setPicture(pictureUrl);
+            projectEncontrado.setLink1(link1);
+            projectEncontrado.setLink2(link2);
 
-            projectRepository.save(jobExistente);
+            projectRepository.save(projectEncontrado);
         }
     }
 
