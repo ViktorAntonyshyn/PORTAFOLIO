@@ -16,24 +16,32 @@ public class DataInitializer implements CommandLineRunner {
     public void run(String... args) throws Exception {
         // Crear instancias de libros y guardarlos en la base de datos
         Project project1 = new Project();
-        project1.setName("Actores y actriz");
-        project1.setDescription("JAVA");
-        project1.setPicture("https://upload.wikimedia.org/wikipedia/uk/8/85/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_Java.png");
-        project1.setLink1("https://getbootstrap.com");
-        project1.setLink2("https://getbootstrap.com");
+        project1.setName("PORTAFOLIO");
+        project1.setDescription("CRUD-REACT-JAVA-SQL");
+        project1.setPicture("http://res.cloudinary.com/duufv4yfc/image/upload/v1695106494/sxjqlnyzppysmb09xbar.png");
+        project1.setLink1("https://github.com/ViktorAntonyshyn/PORTAFOLIO");
+        project1.setLink2("https://github.com/ViktorAntonyshyn/PORTAFOLIO_FRONT");
 
         Project project2 = new Project();
-        project2.setName("Api-telefonico");
-        project2.setDescription("VITE-REACT");
+        project2.setName("Ricky and Morty");
+        project2.setDescription("API-VITE-REACT");
         project2.setPicture("https://getbootstrap.com/docs/5.3/assets/img/vite.svg");
         project2.setLink1("https://getbootstrap.com");
         project2.setLink2("https://getbootstrap.com");
+
+        Project project3 = new Project();
+        project3.setName("AIP-TELEFONICO");
+        project3.setDescription("CRUD-REACT-JAVA-SQL");
+        project3.setPicture("http://res.cloudinary.com/duufv4yfc/image/upload/v1695108004/n7wlsy3osdmk7e4er1sm.jpg");
+        project3.setLink1("https://github.com/ViktorAntonyshyn/API_TELEFONICO");
+        project3.setLink2("https://github.com/ViktorAntonyshyn/API_TELEFONICO");
 
 
 
         // Guardar los libros en la base de datos
         projectRepository.save(project1);
         projectRepository.save(project2);
+        projectRepository.save(project3);
 
     }
 }
