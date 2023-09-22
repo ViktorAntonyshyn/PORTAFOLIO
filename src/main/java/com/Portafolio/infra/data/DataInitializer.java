@@ -17,21 +17,21 @@ public class DataInitializer implements CommandLineRunner {
         // Crear instancias de libros y guardarlos en la base de datos
         Project project1 = new Project();
         project1.setName("PORTAFOLIO");
-        project1.setDescription("CRUD-REACT-JAVA-SQL");
+        project1.setDescription("REACT-API-JAVA-SQL");
         project1.setPicture("http://res.cloudinary.com/duufv4yfc/image/upload/v1695106494/sxjqlnyzppysmb09xbar.png");
         project1.setLink1("https://github.com/ViktorAntonyshyn/PORTAFOLIO");
         project1.setLink2("https://github.com/ViktorAntonyshyn/PORTAFOLIO_FRONT");
 
         Project project2 = new Project();
-        project2.setName("Ricky and Morty");
+        project2.setName("Actores y actrices");
         project2.setDescription("API-VITE-REACT");
         project2.setPicture("https://getbootstrap.com/docs/5.3/assets/img/vite.svg");
-        project2.setLink1("https://getbootstrap.com");
-        project2.setLink2("https://getbootstrap.com");
+        project2.setLink1("https://github.com/PasMosBus/Actores-y-actrices/tree/feature/VIKTOR");
+        project2.setLink2(" ");
 
         Project project3 = new Project();
         project3.setName("AIP-TELEFONICO");
-        project3.setDescription("CRUD-REACT-JAVA-SQL");
+        project3.setDescription("REACT-API-JAVA-SQL");
         project3.setPicture("http://res.cloudinary.com/duufv4yfc/image/upload/v1695108004/n7wlsy3osdmk7e4er1sm.jpg");
         project3.setLink1("https://github.com/ViktorAntonyshyn/API_TELEFONICO");
         project3.setLink2("https://github.com/ViktorAntonyshyn/API_TELEFONICO");
