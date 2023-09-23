@@ -11,7 +11,9 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 @CrossOrigin(origins = "http://localhost:5173")
+
 @RestController
+
 @RequestMapping(path = "api/v1/projects")
 public class ProjectController {
     private final ProjectService projectService;
